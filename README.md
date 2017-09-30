@@ -1,28 +1,31 @@
-# memoize decorator
+# memoizee-decorator
 
-This is a method/getter decorator which is when applied to a method or a getter
-memoizes the result of the first call and returns it on subsequent calls.
+ES7 function decorator wrapper for the memoizee library (https://github.com/medikoo/memoizee).
 
-As decorators are a part of future ES7 standard they can only be used with
-transpilers such as [Babel](http://babeljs.io).
+Based on memoize-decorator (https://github.com/andreypopp/memoize-decorator). Using memoizee enables support for functions with arguments.
 
-Installation:
+Also passes through memoizee options. For functions with parameters with default values, you have to set the length option explicitly, or use the option { length: false }
 
-    % npm install memoize-decorator
+## Usage
+```js
+import memoize from 'memoizee-decorator';
 
-Example:
+class Foo {
+  @memoize
+  get bar() {
+    console.log('Complicated calculations...');
+    return 42;
+  }
 
-    import memoize from 'memoize-decorator'
+  @memoize({length:1})
+  someFunc(num=21) {
+    console.log('Complicated calculations...');
+    return num;
+  }
 
-    class Component {
+}
+```
 
-      @memoize
-      get expensiveValue() {
-        console.log('heavy computations')
-        return 42
-      }
-    }
+Can be used either plain ___@memoize___ or with options ___@memoize({...options})___
 
-    let component = new Component()
-    component.expensiveValue // prints 'heavy computations', returns 42
-    component.expensiveValue // just returns 42
+As with all decorators, you have to use a transpiler. Refer to https://github.com/andreypopp/autobind-decorator#autobind-decorator for prerequisites.
