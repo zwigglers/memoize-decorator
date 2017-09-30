@@ -1,7 +1,8 @@
 {
   "name": "memoizee-decorator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ES7 decorator for memoizee library",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
     "test": "babel-node ./src/test.js"
@@ -16,7 +17,6 @@
     "decorator",
     "es7"
   ],
-  "main": "lib/index.js",
   "author": "zwigglers <zwigglers@gmail.com>",
   "license": "MIT",
   "bugs": {
