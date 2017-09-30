@@ -1,6 +1,6 @@
 {
   "name": "memoizee-decorator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "ES7 decorator for memoizee library",
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
